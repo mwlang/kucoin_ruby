@@ -10,7 +10,7 @@ module KucoinRuby
     end
 
     def self.secret
-      settings['api_secret'] || ENV['KUCOIN_SECRET'] || 'fake_secret'
+      SETTINGS['api_secret'] || ENV['KUCOIN_SECRET'] || 'fake_secret'
     end
 
     def self.config values
