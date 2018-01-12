@@ -3,13 +3,20 @@ require "kucoin_ruby/version"
 module KucoinRuby
   class Net
     API_HOST = 'https://api.kucoin.com'
-
+    SETTINGS = {}
+    
     def self.key
-      ENV['KUCOIN_KEY'] || 'fake_key'
+      SETTINGS['api_key'] || ENV['KUCOIN_KEY'] || 'fake_key'
     end
 
     def self.secret
-      ENV['KUCOIN_SECRET'] || 'fake_secret'
+      settings['api_secret'] || ENV['KUCOIN_SECRET'] || 'fake_secret'
+    end
+
+    def set.config values
+      values.each do |key, value|
+        SETTINGS[key.to_s] = value
+      end
     end
 
     def self.headers(nonce, signature)
