@@ -4,7 +4,7 @@ module KucoinRuby
   class Net
     API_HOST = 'https://api.kucoin.com'
     SETTINGS = {}
-    
+
     def self.key
       SETTINGS['api_key'] || ENV['KUCOIN_KEY'] || 'fake_key'
     end
@@ -13,7 +13,7 @@ module KucoinRuby
       settings['api_secret'] || ENV['KUCOIN_SECRET'] || 'fake_secret'
     end
 
-    def set.config values
+    def self.config values
       values.each do |key, value|
         SETTINGS[key.to_s] = value
       end
